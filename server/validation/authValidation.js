@@ -9,5 +9,10 @@ const signUpSchema = z.object({
     password:z.string({required_error:"Username is required"}).trim().min(4,{message:"Password must be 4 letters"}).max(15,{message:"Maximum 10 latters are allowed"}),
 
 })
+const signInSchema = z.object({
+    email:z.string({required_error:"email is required"}).email().trim(),
+    password:z.string({required_error:"Username is required"}).trim()
 
-module.exports = signUpSchema;
+})
+
+module.exports = {signUpSchema,signInSchema};
