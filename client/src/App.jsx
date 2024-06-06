@@ -6,6 +6,7 @@ import Contact from "../pages/Contact"
 import Login from "../pages/Login"
 import Register from "../pages/Register"
 import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 const App = () => {
   return (
     <BrowserRouter>
@@ -19,6 +20,7 @@ const App = () => {
       <Route  path="/register" element={<Register/>}/>
 
     </Routes>
+    <Footer/>
     </BrowserRouter>
   )
 }
