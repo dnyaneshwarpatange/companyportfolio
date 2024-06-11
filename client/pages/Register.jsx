@@ -33,6 +33,7 @@ const Register = () => {
         body:JSON.stringify(user),
        });
        if(response.ok){
+        alert("Registration Successful")
         setUser({
           username: "",
           email: "",

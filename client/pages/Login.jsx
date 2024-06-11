@@ -1,34 +1,57 @@
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
+  const navigate = useNavigate();
 
   const handleInput = (e) => {
-    let name = e.target.name;
-    let value = e.target.value;
-
+    const { name, value } = e.target;
     setUser({
       ...user,
       [name]: value,
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault(); // Prevent form submission
-    // Add your form submission logic here
-    console.log("Form submitted", user);
-  };
+    try {
+      const response = await fetch("http://localhost:3000/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(user),
+      });
 
+      if (response.ok) {
+        alert("Login Successful");
+        setUser({
+          email: "",
+          password: "",
+        });
+        navigate("/");
+      } else {
+        // Parse the response to get error details
+        const errorData = await response.json();
+        console.error('Error:', errorData);
+        alert(`Login failed: ${errorData.message}`);
+      }
+    } catch (error) {
+      console.error('Error during login:', error);
+      alert('An error occurred during login. Please try again.');
+    }
+  };
   return (
     <div className="registercontainer">
       <div className="topregister">
         <h1>Login Here</h1>
       </div>
       <div className="bottomregister">
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleLogin}>
           <label htmlFor="email">Email</label>
           <input
             type="email"
