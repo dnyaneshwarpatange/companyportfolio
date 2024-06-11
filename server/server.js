@@ -5,7 +5,15 @@ const router = require("./router/authRouter");
 const conn = require("../server/utils/db");
 const errorMiddleware = require("./middlewares/errorReportMiddleware");
 app.use(express.json());
+const cors = require("cors");
 
+
+const corsOption = {
+    origin:"http://localhost:5173",
+    methods:"GET, POST, PUT, DELETE",
+    credential:true,
+}
+app.use(cors(corsOption));
 
 app.use(router);
 app.use(errorMiddleware)
