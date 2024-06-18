@@ -8,12 +8,13 @@ app.use(express.json());
 const cors = require("cors");
 
 
-const corsOption = {
-    origin:"https://mitsoln.vercel.app/*",
-    methods:"GET, POST, PUT, DELETE",
-    credential:true,
-}
-app.use(cors(corsOption));
+// const corsOption = {
+//     origin:"https://mitsoln.vercel.app/*",
+//     methods:"GET, POST, PUT, DELETE",
+//     credential:true,
+// }
+app.use(cors);
+// app.use(cors(corsOption));
 
 app.use(router);
 app.use(errorMiddleware)
