@@ -49,7 +49,7 @@ a {
 
 .registercontainer {
   height: 70vh;
-  background-color: rgb(137, 137, 137);
+  background-color: rgb(1, 1, 1);
   display: flex;
   flex-direction: column;
   gap: 3rem;
@@ -92,5 +92,119 @@ a {
 }
 
 .bottomregister button:hover {
+  background-color: #0056b3; /* Example hover color */
+}
+
+.mainhome{
+  background-color: rgb(1, 1, 1);
+  display: flex;
+  flex-direction: row;
+  height: 82vh;
+  width: 100%;
+}
+.mainhome img{
+ height: 70vh;
+ width: 45vw;
+ 
+}
+.homeleft{
+  display: flex;
+  color: antiquewhite;
+  flex-direction: column;
+  height: 70vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+}
+@media (max-width: 600px) {
+  .mainhome{
+    background-color: rgb(1, 1, 1);
+    display: flex;
+    flex-direction: column;
+    height: 82vh;
+    width: 100vw;
+  }
+
+  .mainhome img{
+   height: 37vh;
+   width: 70vw;
+   margin-left: 1rem;
+
+   
+  }
+  .homeleft{
+    display: flex;
+    color: antiquewhite;
+    flex-direction: column;
+    height: 70vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+  }
+  
+}
+
+.aboutpara{
+  height: 82vh;
+  width: 100%;
+  background-color: rgb(1, 1, 1);
+  color: antiquewhite;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+}
+.contactcontainer {
+  height: 70vh;
+  background-color: rgb(1, 1, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+}
+
+.topcontact {
+  margin-top: 2rem;
+}
+
+.bottomcontact {
+  color: rgb(9, 9, 9);
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally */
+  width: 300px; /* Adjust width as needed */
+  margin: auto; /* Center the form horizontally */
+}
+
+.bottomcontact label,
+.bottomcontact input,
+.bottomcontact textarea,
+.bottomcontact button {
+  border-radius: 10px;
+  margin-bottom: 10px; /* Add some vertical space between items */
+}
+
+.bottomcontact label {
+  font-weight: bold;
+}
+
+.bottomcontact input,
+.bottomcontact textarea {
+  padding: 5px;
+  width: 100%;
+}
+
+.bottomcontact button {
+  padding: 10px 20px;
+  background-color: #007bff; 
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.bottomcontact button:hover {
   background-color: #0056b3; /* Example hover color */
 }
