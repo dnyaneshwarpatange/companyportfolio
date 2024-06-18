@@ -20,7 +20,7 @@ const Contact = () => {
   const handleContact = async (e) => {
     e.preventDefault(); // Prevent form submission
     try {
-      const response = await fetch("http://localhost:3000/contact", {
+      const response = await fetch("https://mitsoln.vercel.app/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
