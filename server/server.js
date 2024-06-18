@@ -9,7 +9,7 @@ const cors = require("cors");
 
 
 const corsOption = {
-    origin:"https://itsoln.vercel.app/",
+    origin:"https://mitsoln.vercel.app/",
     methods:"GET, POST, PUT, DELETE",
     credential:true,
 }
