@@ -4,25 +4,28 @@ const app = express();
 const router = require("./router/authRouter");
 const conn = require("../server/utils/db");
 const errorMiddleware = require("./middlewares/errorReportMiddleware");
-app.use(express.json());
 const cors = require("cors");
 
+app.use(express.json());
 
-// const corsOption = {
-//     origin:"https://mitsoln.vercel.app/*",
-//     methods:"GET, POST, PUT, DELETE",
-//     credential:true,
-// }
-app.use(cors);
-// app.use(cors(corsOption));
+// Correct CORS Configuration
+const corsOptions = {
+    origin: "https://mitsoln.vercel.app", // Ensure this matches your frontend URL exactly
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true, // Note: it's "credentials" not "credential"
+};
+
+app.use(cors(corsOptions)); // Apply the CORS middleware with the options
 
 app.use(router);
-app.use(errorMiddleware)
-const port = 3000;
+app.use(errorMiddleware);
 
-conn().then(()=>{
-    app.listen(port,()=>{
-        console.log("Server started")
-    })
+const port = process.env.PORT || 3000;
 
-})
+conn().then(() => {
+    app.listen(port, () => {
+        console.log(`Server started on port ${port}`);
+    });
+}).catch(err => {
+    console.error('Failed to connect to the database', err);
+});
