@@ -8,14 +8,14 @@ const cors = require("cors");
 
 app.use(express.json());
 
-// Correct CORS Configuration
+// Updated CORS Configuration to include localhost
 const corsOptions = {
-    origin: "https://mitsoln.vercel.app", // Ensure this matches your frontend URL exactly
+    origin: ["https://itsoln.vercel.app", "http://localhost:5173"], // Allow both the live and local development URLs
     methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true, // Note: it's "credentials" not "credential"
+    credentials: true, // Ensure credentials is true if needed for cookies/auth
 };
 
-app.use(cors(corsOptions)); // Apply the CORS middleware with the options
+app.use(cors(corsOptions)); // Apply the CORS middleware with the updated options
 
 app.use(router);
 app.use(errorMiddleware);
